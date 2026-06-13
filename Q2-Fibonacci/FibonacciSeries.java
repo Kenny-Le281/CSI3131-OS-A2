@@ -1,3 +1,14 @@
+/* ------------------------------------------------ ------------
+File: FibonacciSeries.java
+
+Last name: Le, Colasante
+Student number: 300417781, 300427831
+
+Description: Description: This program creates a child thread to generate a Fibonacci sequence. 
+The child thread stores the sequence in a shared array, and the parent thread waits for it to finish before printing the result.
+
+------------------------------------------------------------- */
+
 public class FibonacciSeries extends Thread {
     private int n;
     private long[] fibonacciSequence;
@@ -24,7 +35,7 @@ public class FibonacciSeries extends Thread {
 
     public static void main(String[] args) {
         if (args.length != 1) {
-            System.out.println("Usage: java FibonacciSeries <number>");
+            System.out.println("Please input a valid number. Example: java FibonacciSeries 8");
             return;
         }
 
@@ -42,7 +53,7 @@ public class FibonacciSeries extends Thread {
         childThread.start();
 
         try {
-            childThread.join();
+            childThread.join(); // Wait for the child thread to finish
         } catch (InterruptedException e) {
             System.out.println("Thread was interrupted.");
         }
