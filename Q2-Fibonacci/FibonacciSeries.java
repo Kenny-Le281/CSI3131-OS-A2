@@ -13,7 +13,7 @@ public class FibonacciSeries extends Thread {
     private int n;
     private long[] fibonacciSequence;
 
-    public FibonacciSeries(int n, long[] fibonacciSequence) {
+    public FibonacciSeries(int n, long[] fibonacciSequence){
         this.n = n;
         this.fibonacciSequence = fibonacciSequence;
     }
@@ -33,15 +33,15 @@ public class FibonacciSeries extends Thread {
         }
     }
 
-    public static void main(String[] args) {
-        if (args.length != 1) {
+    public static void main(String[] args){
+        if (args.length != 1){
             System.out.println("Please input a valid number. Example: java FibonacciSeries 8");
             return;
         }
 
         int n = Integer.parseInt(args[0]);
 
-        if (n < 0) {
+        if (n < 0){
             System.out.println("Please enter a non-negative number.");
             return;
         }
@@ -52,15 +52,15 @@ public class FibonacciSeries extends Thread {
 
         childThread.start();
 
-        try {
-            childThread.join(); // Wait for the child thread to finish
+        try{
+            childThread.join();
         } catch (InterruptedException e) {
             System.out.println("Thread was interrupted.");
         }
 
         System.out.println("Fibonacci sequence:");
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++){
             System.out.print(fibonacciSequence[i] + " ");
         }
 
